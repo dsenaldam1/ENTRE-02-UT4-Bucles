@@ -19,16 +19,18 @@ public class Utilidades
     public static boolean estaEnOctal(int n) {
         int numero = n;
         int cifra;
-        boolean octal = false;
+        boolean octal = true;
         while (numero != 0){
            cifra = numero % 10;
            numero = numero / 10;
            int cifras = contarCifras(numero);
-           return octal = (cifra >= 0 && cifra <= 7);
+            if  (cifra > 7){
+                 return false;
+            }
         }
         return octal;
     }
-    
+
     /**
      * Dado un número n (asumimos positivo)
      * devuelve la cantidad de cifras que tiene
