@@ -2,7 +2,7 @@
 /**
  *  Clase que dibuja una figura 
  * 
- * @author - 
+ * @author David Sena 
  *  
  */
 public class PintorFiguras
@@ -12,7 +12,6 @@ public class PintorFiguras
     private static final char CAR1 = 'B';
     private static final char CAR2 = '=';
 
-
     /**
      * Dibuja una figura (ver enunciado) de altura
      * indicada (se asume la altura un valor correcto)
@@ -20,21 +19,30 @@ public class PintorFiguras
      * (usa bucles for)
      */
     public  void dibujarFigura(int altura) {
-        int CAR1 = 1;
-        for(int fila = 1; fila <= 10; fila ++){
-        int escribirEspacios= (fila - 1);
-        for(int col = 10; col>=CAR1; col --){
-            System.out.print(CAR1 * ANCHO_BLOQUE);
+        for(int fila = 1; fila <= altura; fila ++){
+            escribirEspacios(ESPACIO, altura - (2*fila-2) + ANCHO_BLOQUE/2);
+            for(int col = 1; col<= fila; col ++){           
+                if(col % 2 !=0){
+                    for(int contador = 1 ;contador <= ANCHO_BLOQUE; contador++){
+                       System.out.print(CAR1);  
+                    }
+                }
+                else {
+                    for(int contador = 1 ;contador <= ANCHO_BLOQUE; contador++){
+                       System.out.print(CAR2);  
+                    }
+                }
+            }
+            System.out.println();
         }
     }
-}
-
-    /**
-     * Método privado de ayuda que escribe n espacios en la misma línea
-     */
-    private  void escribirEspacios(char caracter, int n) {
-         for (int contador = 1; contador <=n; contador++){
-             System.out.print(ESPACIO);
-         }
+    
+        /**
+         * Método privado de ayuda que escribe n espacios en la misma línea
+         */
+        private  void escribirEspacios(char caracter, int n) {
+        for (int fila = 1; fila <=n; fila++){
+            System.out.print(caracter);
+        }
     }
 }
