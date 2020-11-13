@@ -1,7 +1,7 @@
 import java.util.Scanner;
 /**
  * Modela el interfaz para interactuar con el usuario
- * @author - 
+ * @author David Sena
  */
 public class IUTexto
 {
@@ -40,9 +40,34 @@ public class IUTexto
      */
     private void hacerSumasOctales()
     {
-        
-        
-
+        char volver = 's';
+        while (volver == 's' || volver == 'S'){
+            System.out.println("Teclea número1: ");
+            int primNumero = teclado.nextInt();
+            System.out.println("Teclea número2: ");
+            int secNumero = teclado.nextInt();
+            if (Utilidades.estaEnOctal(primNumero) || 
+                Utilidades.estaEnOctal(secNumero)){
+                if (Utilidades.contarCifras(primNumero) == 
+                    Utilidades.contarCifras(secNumero)){
+                    System.out.println("------------------------------");
+                    System.out.printf("\n %30d \n ", primNumero);
+                    System.out.printf("%30d \n ", secNumero);
+                    System.out.printf("\n Suma Octal: \t\t " +
+                     calculadora.sumarEnOctal(primNumero, secNumero));
+                }
+                else{
+                    System.out.println("Los números no tienen las mismas cifras");
+                }
+            }
+            else{
+                System.out.println("Alguno de los  números no esta en octal");
+            }
+            Pantalla.borrarPantalla();
+            System.out.println("Quiere hacer otra suma en octal?  (S / s)");
+            teclado.nextLine();
+            volver = teclado.nextLine().charAt(0);
+        }
     }
 
     /**
@@ -53,7 +78,16 @@ public class IUTexto
 
     private void dibujarFiguras()
     {
-        
+        System.out.println("Ahora dibujará una figura"); 
+        int altura = 0;
+        System.out.print(" Altura de la figura? (1-10)");
+        altura = this.teclado.nextInt();
+
+        if(altura >= 1 && altura <= 10){
+            pintor.dibujarFigura(altura);
+        }else{
+            System.out.print("Error, Altura de la figura? (1-10)");
+        }
     }
 
 }
