@@ -20,7 +20,7 @@ public class PintorFiguras
      */
     public  void dibujarFigura(int altura) {
         for(int fila = 1; fila <= altura; fila ++){
-            escribirEspacios(ESPACIO, altura - (2*fila-2) + ANCHO_BLOQUE/2);
+            escribirEspacios(ESPACIO, altura - (2*fila-2) + ANCHO_BLOQUE *2);
             for(int col = 1; col<= fila; col ++){           
                 if(col % 2 !=0){
                     for(int contador = 1 ;contador <= ANCHO_BLOQUE; contador++){
